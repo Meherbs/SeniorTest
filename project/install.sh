@@ -22,5 +22,8 @@ echo "*/15 * * * * /usr/local/bin/php /var/www/project/bin/console app:parse-new
 # change directory to the project dir
 cd /var/www/project
 
+# run the parser to initialize the data
+php bin/console app:parse-news
+
 # run consumer to receive the async tasks from rabbitMq
 php bin/console messenger:consume async -vv
