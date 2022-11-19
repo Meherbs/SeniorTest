@@ -13,11 +13,11 @@ access to the list of articles).
 ---------------------------------------------
 # Time to run the application with docker ?
 ### - 1) git clone the repository
-### - 2) run cp project/.env.test project/.env 
+### - 2) run <code>cp project/.env.test project/.env </code>
 #### then update the <code>APP_SECRET</code> and <code>NEWS_API_KEY</code> with your secrect keys
-### - 3) run docker-compose up --build
+### - 3) run <code>docker-compose up --build</code>
 ### - 4) access inside the 'seniortest-www' container (docker exec -it container_id (docker container ls to find the container_id) bash)
-### - 5) run chmod +x project/install.sh && project/install.sh
+### - 5) run <code>chmod +x project/install.sh && project/install.sh </code>
 
 -------------------------------------------------
 ## Access : 
