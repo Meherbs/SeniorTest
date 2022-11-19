@@ -4,8 +4,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN apt-get update \
     && apt-get install -qq -y --no-install-recommends \
-     cron \ 
-     vim \ 
+    cron \
+     vim \
      locales coreutils apt-utils git libicu-dev g++ libpng-dev libxml2-dev libzip-dev libonig-dev libxslt-dev;
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -23,8 +23,5 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions amqp
-
-RUN touch /var/spool/cron/crontabs/root
-RUN cd /var/spool/cron/crontabs/ && chmod 600 root && echo "*/15 * * * * php /var/www/project/bin/console app:parse-news > /dev/null 2>&1" > root
 
 WORKDIR /var/www

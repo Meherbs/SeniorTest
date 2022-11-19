@@ -32,7 +32,7 @@ security:
             # switch_user: true
 
     role_hierarchy:
-        ROLE_USER:       ROLE_USER
+        ROLE_USER:  ROLE_USER
         ROLE_ADMIN: [ROLE_ADMIN, ROLE_USER]
 
     # Easy way to control access for large sections of your site

@@ -9,11 +9,11 @@ use App\Entity\User;
 
 class UserFixture extends Fixture
 {
-    private $userPasswordHasherInterface;
+    private UserPasswordHasherInterface $userPasswordHashesInterface;
 
-    public function __construct (UserPasswordHasherInterface $userPasswordHasherInterface) 
+    public function __construct (UserPasswordHasherInterface $userPasswordHashesInterface)
     {
-        $this->userPasswordHasherInterface = $userPasswordHasherInterface;
+        $this->userPasswordHashesInterface = $userPasswordHashesInterface;
     }
 
     public function load(ObjectManager $manager): void
@@ -24,7 +24,7 @@ class UserFixture extends Fixture
 
         $plaintextPassword = 'password';
         // hash the password (based on the security.yaml config for the $user class)
-        $hashedPassword = $this->userPasswordHasherInterface->hashPassword(
+        $hashedPassword = $this->userPasswordHashesInterface->hashPassword(
             $user,
             $plaintextPassword
         );
@@ -33,7 +33,7 @@ class UserFixture extends Fixture
         $moderator = new User();
         $moderator->setUsername('admin');
         $moderator->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
-        $moderator->setPassword($this->userPasswordHasherInterface->hashPassword(
+        $moderator->setPassword($this->userPasswordHashesInterface->hashPassword(
             $moderator,
             $plaintextPassword
         ));

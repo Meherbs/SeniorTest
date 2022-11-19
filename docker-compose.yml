@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-
+    # Mysql database container
     db:
         image: mysql
         container_name: test_db_symfony
@@ -12,6 +12,7 @@ services:
         networks:
             - dev
 
+    # phpmyadmin container to manage the database with UI interface
     phpmyadmin:
         image: phpmyadmin
         container_name: test_phpmyadmin_symfony
@@ -25,6 +26,7 @@ services:
         networks:
             - dev
 
+    # Symfony apache project container
     www:
         build: docker/php
         container_name: test_symfony
@@ -37,6 +39,7 @@ services:
         networks:
             - dev
 
+    # rabbitmq container to manage async tasks
     rabbitmq:
         container_name: test_rabbitmq
         build:

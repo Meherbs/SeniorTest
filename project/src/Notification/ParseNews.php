@@ -4,7 +4,7 @@ namespace App\Notification;
 
 class ParseNews
 {
-    private $url;
+    private string $url;
 
     public function __construct(string $url)
     {
